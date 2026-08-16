@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetap Health | TetapHealth Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-nav">
+            <div class="logo">
+                <div class="logo-icon">TH</div>
+                Tetap Health
+            </div>
+            <nav>
+                <a href="#dashboard" class="btn btn-ghost btn-sm">Dashboard</a>
+                <a href="#records" class="btn btn-ghost btn-sm">Records</a>
+                <a href="#appointments" class="btn btn-ghost btn-sm">Appointments</a>
+                <a href="#media" class="btn btn-primary btn-sm">Telehealth Room</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="section" id="dashboard">
+            <h1 class="display mb-md">Welcome back, <span class="text-secondary">Dr. Romi</span>.</h1>
+            <p class="body-lg mb-lg">Your daily overview. You have <strong>3 new patients</strong> and <em>2 pending lab results</em>. Please review them promptly to ensure optimal care. <a href="#records">View pending records</a>.</p>
+            
+            <div class="flex gap-sm">
+                <button class="btn btn-primary btn-md">Start Shift</button>
+                <button class="btn btn-secondary btn-md">Review Inbox</button>
+            </div>
+        </section>
+
+        <section class="section" id="records">
+            <h2 class="mb-lg">Patient Overview</h2>
+            
+            <div class="grid-3">
+                <div class="card card-elevated p-0">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Medical clinic" class="card-image-top">
+                    <div class="card-header-strip">Recent Patients</div>
+                    <div class="card-body">
+                        <ul class="list-container mb-md">
+                            <li class="list-item">
+                                <span class="list-item-label">Zhokoui</span>
+                                <span class="list-item-desc">Follow-up • 10:30 AM</span>
+                            </li>
+                            <li class="list-item">
+                                <span class="list-item-label">Prabski</span>
+                                <span class="list-item-desc">Consultation • 11:15 AM</span>
+                            </li>
+                            <li class="list-item">
+                                <span class="list-item-label">Girban</span>
+                                <span class="list-item-desc">Lab Results • 01:00 PM</span>
+                            </li>
+                        </ul>
+                        <button class="btn btn-ghost btn-sm w-full">View All Patients</button>
+                    </div>
+                </div>
+
+                <div class="card card-elevated p-0">
+                    <div class="card-header-strip">Lab Results</div>
+                    <div class="card-body">
+                        <div class="flex gap-sm mb-md flex-wrap">
+                            <button class="chip chip-filter-active">All</button>
+                            <button class="chip chip-filter">Pending</button>
+                            <span class="chip chip-success">Normal</span>
+                            <span class="chip chip-error">Critical</span>
+                        </div>
+
+                        <table class="data-table mb-md">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Result</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WBC</td>
+                                    <td class="numeric">6.5</td>
+                                    <td><span class="chip chip-success">Normal</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="tooltip-container">
+                                            RBC
+                                            <span class="tooltip-text">Red Blood Cell Count</span>
+                                        </div>
+                                    </td>
+                                    <td class="numeric text-error">4.1</td>
+                                    <td><span class="chip chip-error">Low</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Platelets</td>
+                                    <td class="numeric">250</td>
+                                    <td><span class="chip chip-success">Normal</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card card-elevated" id="appointments">
+                    <h3 class="mb-md">Schedule Appointment</h3>
+                    
+                    <form id="appointmentForm">
+                        <div class="input-group">
+                            <label class="input-label" for="patientName">Patient Name</label>
+                            <input type="text" id="patientName" class="input-field" placeholder="Enter full name">
+                            <span class="input-error-text" id="nameError"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="patientEmail">Email Address</label>
+                            <input type="email" id="patientEmail" class="input-field" placeholder="email@example.com">
+                            <span class="input-error-text" id="emailError"></span>
+                        </div>
+
+                        <div class="mb-md">
+                            <label class="input-label mb-sm" style="display:block;">Consultation Type</label>
+                            <label class="control-group">
+                                <input type="radio" name="consultType" class="radio" value="video" checked>
+                                <span class="control-label">Video Call</span>
+                            </label>
+                            <label class="control-group">
+                                <input type="radio" name="consultType" class="radio" value="inperson">
+                                <span class="control-label">In-Person Clinic</span>
+                            </label>
+                        </div>
+
+                        <div class="mb-lg">
+                            <label class="control-group">
+                                <input type="checkbox" id="termsCheckbox" class="checkbox">
+                                <span class="control-label">Patient agrees to data privacy policy</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-md">Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="section" id="media">
+            <h2 class="mb-lg">TetapHealth Room Demo</h2>
+            <div class="grid-2">
+
+                <div class="media-container">
+                    <video controls poster="https://images.unsplash.com/photo-1576091160550-2173ff9e594b?auto=format&fit=crop&w=800&q=80">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="p-4" style="padding: 16px;">
+                        <h4>Consultation Recording</h4>
+                        <p class="body-sm text-secondary">Session with Patient ID: 49201</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="mb-md">Voice Notes</h3>
+                    <p class="body mb-md">Listen to the physician's dictated notes for this session.</p>
+                    <audio controls>
+                        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    
+                    <div class="mt-lg">
+                        <h4>Transcript:</h4>
+                        <pre><code>Patient reports mild headaches in the morning.
+Blood pressure is normal at 110/70.
+Prescribed hydration and rest for 3 days.</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container flex justify-between items-center">
+            <div>
+                <span class="logo" style="color: white;">Tetap Health</span>
+                <p class="body-sm mt-sm" style="color: #94A3B8;">&copy; 2026 Tetap Health Systems. All rights reserved.</p>
+            </div>
+            <div>
+                <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
